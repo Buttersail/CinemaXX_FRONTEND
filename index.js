@@ -21,6 +21,10 @@ function renderMenuItems(evt) {
       logout()
       break
     }
+    case 'page-create-screening': {
+      setupCreateScreeningHandlers()
+      break
+    }
   }
 }
 
