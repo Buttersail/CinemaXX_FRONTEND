@@ -18,6 +18,7 @@ export function makeOptions(method, body, addToken) {
   }
   if (addToken) {
     opts.headers.Authorization = 'Bearer ' + sessionStorage.getItem('token')
+    console.log(sessionStorage.getItem('token'))
   }
   if (body) {
     //Observe how we can add new fields to an object when needed

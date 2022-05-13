@@ -1,16 +1,21 @@
 import { encode } from "../utils.js";
 import { SERVER_URL} from "../settings.js"
+import { makeOptions } from "../fetchUtils.js";
 
-let URL = SERVER + "/api/screenings"
+const URL = SERVER_URL + "/api/screenings"
 const screening = {}
 
 export function setupCreateScreeningHandlers(){
     document.getElementById("create-screening").onclick = createScreening
+    document.getElementById("selected-cinema-id-btn").onclick = createHallOptions
+}
+
+export function onCinemaSelect(){
+    
 }
 
 function createScreening(){
     screeningInput();
-
 }
 
 function screeningInput(){
@@ -20,4 +25,18 @@ function screeningInput(){
     screening.staffId = document.getElementById("staff-id").value
     screening.cinemaId = document.getElementById("selected-cinema-id").value
     screening.hallId = document.getElementById("selected-hall-id").value
+}
+
+function createHallOptions(){
+    const options = makeOptions("GET",false,true)
+    console.log("test123")
+    let cinemaId = document.getElementById("selected-cinema-id").value
+    fetch(SERVER_URL + "halls?cinemaId=" + cinemaId, options)
+    .then(res => res.json())
+    .then(data =>{
+        const rows = data.map(hall => `
+        <option value="${encode(hall.hallId)}"> Cinema Hall - ${encode(hall.hallNo)} - Size: ${hall.numberOfSeats} </option>
+        `).join("\n")
+        document.getElementById("selected-hall-id").innerHTML = rows
+})
 }
