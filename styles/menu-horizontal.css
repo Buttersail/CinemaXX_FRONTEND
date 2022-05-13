@@ -3,7 +3,7 @@ ul.menu {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
+  background-color: rgb(19, 5, 78);
 }
 
 ul.menu li {
@@ -19,9 +19,9 @@ ul.menu li a {
 }
 
 ul.menu li a:hover:not(.active) {
-  background-color: #111;
+  background-color: #1746dfbb;
 }
 
 .active {
-  background-color: #04aa6d;
+  background-color: #1746df;
 }
