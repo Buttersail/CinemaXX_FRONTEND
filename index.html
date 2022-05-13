@@ -31,9 +31,12 @@
           <div id="logged-in" style="display: none">
             <li><a id="page-secret" href="#">Protected Data</a></li>
           </div>
-
+          
           <li><a id="page-login" href="#">Login</a></li>
           <li><a id="page-logout" href="#" style="display: none">Logout</a></li>
+          <div id="create-screening">
+            <li><a id="page-create-screening" href="#">Create New Screening</a></li>
+          </div>
         </ul>
         <p id="user-role"></p>
       </div>
@@ -72,3 +75,55 @@
     <p id="error" style="color: red; margin-top: 10px"></p>
   </div>
 </template>
+
+<template data-id="page-create-screening">
+  <div class="row d-flex justify-content-center">
+    <form class="col-md-6 p-3" style="border-radius: 20px; box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;">
+      <div class="form-row d-flex">
+        <div class="form-group col-md-6">
+          <label for="input-showtime">Showtime</label>
+          <input type="datetime-local" class="form-control" id="show-time" placeholder="showtime">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="input-screening-length">Screening length in minutes</label>
+          <input type=text class="form-control" id="screening-duration" placeholder="duration">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="movie-selector">Select A movie</label>
+        <select class="form-control" id="selected-movie-id">
+          <!-- erstattes med movies -->
+          <option> test1 </option>
+          <option> test2 </option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="created-by">Staff Workerid</label>
+        <input class="form-control" type="text" id="staff-id" readonly>
+      </div>
+        <div class="form-group">
+            <label for="cinema-selector">Select Cinema</label>
+            <div class="col d-flex flex-end">
+              <select class="form-control" id="selected-cinema-id">
+                <!-- erstattes med cinemas-->
+                <option value="1">cinematest1</option>
+                <option value="2">cinematest2</option>
+              </select>
+              <div class="col ms-1">
+                <button id="selected-cinema-id-btn" class="btn btn-secondary ml">Confirm</button>
+              </div>
+            </div>
+        </div>
+        <div class="form-group col-md-12">
+          <label for="hall-selector">Select Hall</label>
+          <select class="form-control" id="selected-hall-id">
+            <!-- hentes ud fra valgt cinema-->
+          </select>
+        </div>
+        <div>
+          <button id="create-screening" class="btn btn-primary mt-3">create Screening</button>
+        </div>
+      </form>
+    </div>
+    </template>
+    

@@ -1,6 +1,7 @@
 import { renderTemplate, setActive, showPage } from './utils.js'
 import { setupLoginHandlers, logout, updateLoginDependentComponents } from './js-for-pages/login.js'
 import { fetchData } from './js-for-pages/fetchProtectedData.js'
+import {setupCreateScreeningHandlers} from './js-for-pages/createScreening.js'
 
 function renderMenuItems(evt) {
   const element = evt.target
@@ -19,6 +20,10 @@ function renderMenuItems(evt) {
     }
     case 'page-logout': {
       logout()
+      break
+    }
+    case 'page-create-screening': {
+      setupCreateScreeningHandlers()
       break
     }
   }
