@@ -18,7 +18,7 @@
     ></script>
 
     <link rel="stylesheet" href="styles/menu-horizontal.css" />
-    <title>JWT Demo</title>
+    <title>CinemaXX</title>
     <script type="module" src="index.js"></script>
   </head>
 
@@ -26,12 +26,14 @@
     <div style="margin-left: 50px; margin-right: auto; width: 80%" class="vertical-menu">
       <div>
         <ul id="menu" class="menu">
-          <li><a id="page-about" href="#">About</a></li>
+          <li><a id="page-home" href="#">Home</a></li>
+          <li><a id="page-upcoming" href="#">Upcoming Movies</a></li>
+          <li><a id="page-cinemas" href="#">Cinemas</a></li>
 
           <div id="logged-in" style="display: none">
             <li><a id="page-secret" href="#">Protected Data</a></li>
           </div>
-          
+
           <li><a id="page-login" href="#">Login</a></li>
           <li><a id="page-logout" href="#" style="display: none">Logout</a></li>
           <div id="create-screening">
@@ -49,8 +51,32 @@
   All you templates should be added below
 -->
 
-<template data-id="page-about">
-  <h2>Simple Demo Project to demonstrate JWT-security</h2>
+<template data-id="page-home">
+  <h2>Showcase the movies that are airing, ability to buy tickets here.</h2>
+  <button id="btn-show-movies">Show Movies</button>
+  <p>Placeholder Movie Poster</p>
+  <div class="movie-posters">
+    <img
+      id="doctor-strange-2"
+      src="https://www.nfbio.dk/sites/nfbio.dk/files/styles/movie_poster_teaser/public/media-images/2022-02/doctorstrange2plakat_0.jpg?itok=bUtXn3YW"
+    />
+    <img
+      id="top-gun-2"
+      src="https://www.nfbio.dk/sites/nfbio.dk/files/styles/movie_poster_teaser/public/media-images/2022-04/top_gun%20%281%29.jpg?itok=e6_GNCDI"
+    />
+  </div>
+
+  <p>Placeholder Movie Title</p>
+
+  <button id="btn-buy">Buy</button>
+</template>
+
+<template data-id="page-upcoming">
+  <h2>Showcase upcoming movies herey</h2>
+</template>
+
+<template data-id="page-cinemas">
+  <h2>Show the different cinemas here</h2>
 </template>
 
 <template data-id="page-secret">
@@ -78,52 +104,51 @@
 
 <template data-id="page-create-screening">
   <div class="row d-flex justify-content-center">
-    <form class="col-md-6 p-3" style="border-radius: 20px; box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;">
+    <form class="col-md-6 p-3" style="border-radius: 20px; box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px">
       <div class="form-row d-flex">
         <div class="form-group col-md-6">
           <label for="input-showtime">Showtime</label>
-          <input type="datetime-local" class="form-control" id="show-time" placeholder="showtime">
+          <input type="datetime-local" class="form-control" id="show-time" placeholder="showtime" />
         </div>
         <div class="form-group col-md-6">
           <label for="input-screening-length">Screening length in minutes</label>
-          <input type=text class="form-control" id="screening-duration" placeholder="duration">
+          <input type="text" class="form-control" id="screening-duration" placeholder="duration" />
         </div>
       </div>
       <div class="form-group">
         <label for="movie-selector">Select A movie</label>
         <select class="form-control" id="selected-movie-id">
           <!-- erstattes med movies -->
-          <option> test1 </option>
-          <option> test2 </option>
+          <option>test1</option>
+          <option>test2</option>
         </select>
       </div>
       <div class="form-group">
         <label for="created-by">Staff Workerid</label>
-        <input class="form-control" type="text" id="staff-id" readonly>
+        <input class="form-control" type="text" id="staff-id" readonly />
       </div>
-        <div class="form-group">
-            <label for="cinema-selector">Select Cinema</label>
-            <div class="col d-flex flex-end">
-              <select class="form-control" id="selected-cinema-id">
-                <!-- erstattes med cinemas-->
-                <option value="1">cinematest1</option>
-                <option value="2">cinematest2</option>
-              </select>
-              <div class="col ms-1">
-                <button id="selected-cinema-id-btn" class="btn btn-secondary ml">Confirm</button>
-              </div>
-            </div>
-        </div>
-        <div class="form-group col-md-12">
-          <label for="hall-selector">Select Hall</label>
-          <select class="form-control" id="selected-hall-id">
-            <!-- hentes ud fra valgt cinema-->
+      <div class="form-group">
+        <label for="cinema-selector">Select Cinema</label>
+        <div class="col d-flex flex-end">
+          <select class="form-control" id="selected-cinema-id">
+            <!-- erstattes med cinemas-->
+            <option value="1">cinematest1</option>
+            <option value="2">cinematest2</option>
           </select>
+          <div class="col ms-1">
+            <button id="selected-cinema-id-btn" class="btn btn-secondary ml">Confirm</button>
+          </div>
         </div>
-        <div>
-          <button id="create-screening" class="btn btn-primary mt-3">create Screening</button>
-        </div>
-      </form>
-    </div>
-    </template>
-    
+      </div>
+      <div class="form-group col-md-12">
+        <label for="hall-selector">Select Hall</label>
+        <select class="form-control" id="selected-hall-id">
+          <!-- hentes ud fra valgt cinema-->
+        </select>
+      </div>
+      <div>
+        <button id="create-screening" class="btn btn-primary mt-3">create Screening</button>
+      </div>
+    </form>
+  </div>
+</template>
