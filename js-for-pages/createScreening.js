@@ -2,7 +2,7 @@ import { encode } from "../utils.js";
 import { SERVER_URL} from "../settings.js"
 import { makeOptions } from "../fetchUtils.js";
 
-const URL = SERVER_URL + "screenings"
+const URL = SERVER_URL + "/screenings"
 const screening = {}
 
 export function setupCreateScreeningHandlers(){
@@ -15,7 +15,8 @@ export function makeForm(){
      fetchMovies()
     fetchWorkerId()
 }
-async function createScreening(){
+function createScreening(evt){
+    evt.preventDefault()
     screening.duration = document.getElementById("screening-duration").value
     screening.showTime = document.getElementById("show-time").value
     screening.movieId = document.getElementById("selected-movie-id").value
@@ -25,7 +26,7 @@ async function createScreening(){
     
     const options = makeOptions("POST",screening,true)
     console.log(screening)
-    await fetch(URL,options)
+    fetch(URL,options)
     .then(res => res.json())
     .then(data => {
         console.log('Success:', data);
@@ -41,7 +42,7 @@ function createHallOptions(evt){
     const options = makeOptions("GET",false,true)
     
     let cinemaId = document.getElementById("selected-cinema-id").value
-    fetch(SERVER_URL + "halls?cinemaId=" + cinemaId, options)
+    fetch(SERVER_URL + "/halls?cinemaId=" + cinemaId, options)
     .then(res => res.json())
     .then(data =>{
         const rows = data.map(hall => `
@@ -54,7 +55,7 @@ function createHallOptions(evt){
 function fetchWorkerId(){
     const options = makeOptions("GET",false,true)
     let username = sessionStorage.getItem('username')
-    fetch(SERVER_URL + "persons/staff/" + username, options)
+    fetch(SERVER_URL + "/persons/staff/" + username, options)
     .then(res => res.json())
     .then(staff => {
         const row = ` 
@@ -66,7 +67,7 @@ function fetchWorkerId(){
 function fetchMovies(){
     const options = makeOptions("GET",false,true)
     let i = 1;
-    fetch(SERVER_URL + "movies",options)
+    fetch(SERVER_URL + "/movies",options)
     .then(res=> res.json())
     .then(data=> {
         const rows = data.map(movie =>`

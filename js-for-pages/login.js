@@ -13,7 +13,7 @@ async function login(evt) {
   credentials.password = document.getElementById('password').value
   const options = makeOptions('POST', credentials)
   try {
-    const response = await fetch(SERVER_URL + 'auth/login', options).then((res) => handleErrors(res))
+    const response = await fetch(SERVER_URL + '/auth/login', options).then((res) => handleErrors(res))
 
     const token = response.token
     const role = response.roles[0]
