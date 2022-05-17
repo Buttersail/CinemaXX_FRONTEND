@@ -18,7 +18,7 @@ async function login(evt) {
     const token = response.token
     const role = response.roles[0]
     setLoginState(token, role)
-    showPage('page-about')
+    showPage('page-home')
   } catch (err) {
     document.getElementById('error').innerText = err.message + ' - Try again'
   }
@@ -26,7 +26,7 @@ async function login(evt) {
 
 export function logout() {
   setLoginState(null)
-  showPage('page-about')
+  showPage('page-home')
 }
 
 export function setLoginState(token, loggedInAs) {
