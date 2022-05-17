@@ -25,7 +25,3 @@ ul.menu li a:hover:not(.active) {
 .active {
   background-color: #1746df;
 }
-
-.movie-posters {
-  visibility: hidden;
-}
