@@ -37,7 +37,7 @@
           <li><a id="page-login" href="#">Login</a></li>
           <li><a id="page-logout" href="#" style="display: none">Logout</a></li>
           <div id="create-screening">
-            <li><a id="page-create-screening" href="#">Create New Screening</a></li>
+            <li><a id="page-create-screening" href="#" style="display: none">Create New Screening</a></li>
           </div>
         </ul>
         <p id="user-role"></p>
@@ -104,27 +104,25 @@
       <div class="form-group">
         <label for="movie-selector">Select A movie</label>
         <select class="form-control" id="selected-movie-id">
-          <!-- erstattes med movies -->
-          <option>test1</option>
-          <option>test2</option>
         </select>
       </div>
       <div class="form-group">
         <label for="created-by">Staff Workerid</label>
-        <input class="form-control" type="text" id="staff-id" readonly />
+        <div id="staff-id-container"></div>
       </div>
       <div class="form-group">
-        <label for="cinema-selector">Select Cinema</label>
-        <div class="col d-flex flex-end">
-          <select class="form-control" id="selected-cinema-id">
-            <!-- erstattes med cinemas-->
-            <option value="1">cinematest1</option>
-            <option value="2">cinematest2</option>
-          </select>
-          <div class="col ms-1">
-            <button id="selected-cinema-id-btn" class="btn btn-secondary ml">Confirm</button>
+          <label for="cinema-selector">Select Cinema</label>
+          <div class="col d-flex flex-end">
+            <select class="form-control" id="selected-cinema-id">
+              <!-- erstattes med cinemas-->
+              <option value="1">cinematest1</option>
+              <option value="2">cinematest2</option>
+            </select>
+            <div class="col ms-1">
+              <button id="selected-cinema-id-btn" class="btn btn-secondary ml">Confirm</button>
+            </div>
           </div>
-        </div>
+
       </div>
       <div class="form-group col-md-12">
         <label for="hall-selector">Select Hall</label>
@@ -133,8 +131,9 @@
         </select>
       </div>
       <div>
-        <button id="create-screening" class="btn btn-primary mt-3">create Screening</button>
+        <button type="submit" id="create-screening-btn" class="btn btn-primary mt-3">create Screening</button>
       </div>
-    </form>
-  </div>
-</template>
+      </form>
+    </div>
+    </template>
+  

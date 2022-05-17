@@ -34,6 +34,7 @@ export function setLoginState(token, loggedInAs) {
     sessionStorage.setItem('token', token)
     if (loggedInAs) {
       sessionStorage.setItem('logged-in-as', loggedInAs)
+      sessionStorage.setItem('username', document.getElementById('username').value)
     }
   } else {
     sessionStorage.clear('token')
@@ -49,6 +50,8 @@ export function updateLoginDependentComponents() {
   if (loggedIn) {
     document.getElementById('user-role').innerText = 'Logged in as: ' + loggedInAs
   }
+
+  document.getElementById("page-create-screening").style.display = loggedInAs === "ADMIN" ? "block" : "none"
   document.getElementById('logged-in').style.display = loggedIn ? 'block' : 'none'
   document.getElementById('page-login').style.display = loggedIn ? 'none' : 'block'
   document.getElementById('page-logout').style.display = loggedIn ? 'block' : 'none'

@@ -1,9 +1,9 @@
 import { renderTemplate, setActive, showPage } from './utils.js'
 import { setupLoginHandlers, logout, updateLoginDependentComponents } from './js-for-pages/login.js'
 import { fetchData } from './js-for-pages/fetchProtectedData.js'
-import { setupCreateScreeningHandlers } from './js-for-pages/createScreening.js'
-
+import {setupCreateScreeningHandlers, makeForm} from './js-for-pages/createScreening.js'
 import { setupMovieHandlers } from './js-for-pages/home.js'
+
 
 function renderMenuItems(evt) {
   const element = evt.target
@@ -29,6 +29,7 @@ function renderMenuItems(evt) {
       break
     }
     case 'page-create-screening': {
+      makeForm()
       setupCreateScreeningHandlers()
       break
     }
