@@ -3,6 +3,7 @@ import { setupLoginHandlers, logout, updateLoginDependentComponents } from './js
 import { fetchData } from './js-for-pages/fetchProtectedData.js'
 import {setupCreateScreeningHandlers, makeForm} from './js-for-pages/createScreening.js'
 import { setupMovieHandlers } from './js-for-pages/home.js'
+import {setupCreateAccountHandlers} from './js-for-pages/createAccount.js'
 
 
 function renderMenuItems(evt) {
@@ -26,6 +27,10 @@ function renderMenuItems(evt) {
     }
     case 'page-logout': {
       logout()
+      break
+    }
+    case 'page-create-account':{
+      setupCreateAccountHandlers()
       break
     }
     case 'page-create-screening': {

@@ -54,5 +54,6 @@ export function updateLoginDependentComponents() {
   document.getElementById("page-create-screening").style.display = loggedInAs === "ADMIN" ? "block" : "none"
   document.getElementById('logged-in').style.display = loggedIn ? 'block' : 'none'
   document.getElementById('page-login').style.display = loggedIn ? 'none' : 'block'
+  document.getElementById('page-create-account').style.display = loggedIn ? 'none' : 'block'
   document.getElementById('page-logout').style.display = loggedIn ? 'block' : 'none'
 }
