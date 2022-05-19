@@ -1,9 +1,8 @@
 import { renderTemplate, setActive, showPage } from './utils.js'
 import { setupLoginHandlers, logout, updateLoginDependentComponents } from './js-for-pages/login.js'
-import {setupCreateScreeningHandlers, makeForm} from './js-for-pages/createScreening.js'
+import { setupCreateScreeningHandlers, makeForm } from './js-for-pages/createScreening.js'
 import { setupMovieHandlers } from './js-for-pages/home.js'
-import {setupCreateAccountHandlers} from './js-for-pages/createAccount.js'
-
+import { setupCreateAccountHandlers } from './js-for-pages/createAccount.js'
 
 function renderMenuItems(evt) {
   const element = evt.target
@@ -24,7 +23,7 @@ function renderMenuItems(evt) {
       logout()
       break
     }
-    case 'page-create-account':{
+    case 'page-create-account': {
       setupCreateAccountHandlers()
       break
     }
