@@ -25,7 +25,6 @@ function createScreening(evt){
     screening.hallId = document.getElementById("selected-hall-id").value
     
     const options = makeOptions("POST",screening,true)
-    console.log(screening)
     fetch(URL,options)
     .then(res => res.json())
     .then(data => {

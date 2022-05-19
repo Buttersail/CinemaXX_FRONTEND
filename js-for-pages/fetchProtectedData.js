@@ -4,7 +4,7 @@ import { SERVER_URL } from '../settings.js'
 export async function fetchData() {
   try {
     const loggedInAs = sessionStorage.getItem('logged-in-as')
-    const ENDPOINT_URL = SERVER_URL + 'message/' + loggedInAs.toLowerCase()
+    const ENDPOINT_URL = SERVER_URL + '/message/' + loggedInAs.toLowerCase()
     const options = {
       method: 'GET',
       headers: {
