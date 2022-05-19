@@ -46,12 +46,8 @@ export function setLoginState(token, loggedInAs) {
 export function updateLoginDependentComponents() {
   const loggedIn = sessionStorage.getItem('token')
   const loggedInAs = sessionStorage.getItem('logged-in-as')
-  document.getElementById('user-role').innerText = ''
-  if (loggedIn) {
-    document.getElementById('user-role').innerText = 'Logged in as: ' + loggedInAs
-  }
 
-  document.getElementById("page-create-screening").style.display = loggedInAs === "ADMIN" ? "block" : "none"
+  document.getElementById('page-create-screening').style.display = loggedInAs === 'ADMIN' ? 'block' : 'none'
   document.getElementById('logged-in').style.display = loggedIn ? 'block' : 'none'
   document.getElementById('page-login').style.display = loggedIn ? 'none' : 'block'
   document.getElementById('page-create-account').style.display = loggedIn ? 'none' : 'block'
