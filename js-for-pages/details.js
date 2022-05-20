@@ -2,6 +2,7 @@ import { SERVER_URL } from '../settings.js'
 import { makeOptions } from '../fetchUtils.js'
 import { renderTemplate } from '../utils.js'
 import { encode, showPage } from '../utils.js'
+import {renderReservationForm} from './reservations.js'
 
 let URL = SERVER_URL + '/movies'
 
@@ -34,5 +35,6 @@ export function details(event) {
       `
 
       document.getElementById('movie-details').innerHTML = rows
+      document.getElementById('btn-reserve-ticket').onclick = renderReservationForm
     })
 }

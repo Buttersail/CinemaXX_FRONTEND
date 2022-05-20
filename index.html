@@ -178,3 +178,22 @@
     </form>
   </div>
 </template>
+
+<template data-id="page-reservation">
+    <div id="form-container" class="container">
+      <form style="border-radius: 20px; box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px">
+        <input  id="screeningId" type="number" hidden>
+        <div id="screenings-container" class="row"></div>
+        <label for="number-of-seats">Select the number of seats to reserve:</label>
+        <input type="number" id="number-of-seats" name="number-of-seats">
+        <div></div>
+        <button type="button" id="create-reservations-btn" class="btn btn-primary">Make Reservations</button>
+      </form>
+    </div>
+</template>
+
+<template data-id="page-reservation-response">
+  <div id="reservation-response-container">
+
+  </div>
+</template>
